@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
+             xmlns:trg="clr-namespace:FirstXamarinProject.Triggers"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="FirstXamarinProject.Views.RegisterPage">
+    <ContentPage.BindingContext>
+        <vm:RegisterVM></vm:RegisterVM>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="MidnightBlue">
+            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <RelativeLayout VerticalOptions="Start" HorizontalOptions="Center" WidthRequest="200" HeightRequest="200" BackgroundColor="Transparent">
+                    <Image WidthRequest="200" HeightRequest="200" Aspect="AspectFit" x:Name="image" Source="{Binding Image}"></Image>
+                    <Button BackgroundColor="Transparent" Command="{Binding ImageSelectCommand}" 
+                            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
+                            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"></Button>
+                </RelativeLayout>
+                <Entry Text="{Binding Name}" Placeholder="Name" PlaceholderColor="DimGray" x:Name="entryName" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="AliceBlue"></Entry>
+                <Entry Text="{Binding Surname}" Placeholder="Surname" PlaceholderColor="DimGray" x:Name="entrySurname" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="AliceBlue"></Entry>
+                <Entry Text="{Binding Email}" BackgroundColor="{Binding BgColor}" Placeholder="Email" PlaceholderColor="DimGray" x:Name="entryEmail" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="AliceBlue"></Entry>
+                <Entry Text="{Binding Password}" Placeholder="Password" PlaceholderColor="DimGray" IsPassword="True" x:Name="entryPassword" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="AliceBlue"></Entry>
+                <Entry Text="{Binding Password2}" Placeholder="Tekrar Password" PlaceholderColor="DimGray" IsPassword="True" x:Name="entryPassword2" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="AliceBlue">
+                    <Entry.Triggers>
+                        <EventTrigger Event="TextChanged">
+                            <trg:PasswordTrigger FirstEntry="{x:Reference entryPassword}"></trg:PasswordTrigger>
+                        </EventTrigger>
+                    </Entry.Triggers>
+                </Entry>
+                <Button Text="Kayıt Ol"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

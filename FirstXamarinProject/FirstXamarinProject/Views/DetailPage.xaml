@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstXamarinProject.Views.DetailPage">
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Car.PageTitle}" TextColor="White" FontSize="20"></Label>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Image x:Name="image" BackgroundColor="LightGray" HeightRequest="200" WidthRequest="200" HorizontalOptions="CenterAndExpand" Aspect="AspectFill" Source="{Binding Car.ImgSource}"></Image>
+            </StackLayout>
+            <StackLayout Padding="10">
+                <Label x:Name="model" BackgroundColor="LightGray" Text="{Binding Car.Model}" FontAttributes="Bold" FontSize="Large"></Label>
+                <Label x:Name="year" BackgroundColor="LightGray" Text="{Binding Car.Year}" FontSize="Medium"></Label>
+                <Label x:Name="details" BackgroundColor="LightGray" HeightRequest="100" MinimumHeightRequest="100" Text="{Binding Car.Details}" FontSize="Small"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

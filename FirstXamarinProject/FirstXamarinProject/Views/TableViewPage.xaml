@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
+             x:Class="FirstXamarinProject.Views.TableViewPage">
+    <ContentPage.BindingContext>
+        <vm:SettingVM></vm:SettingVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <TableView>
+            <TableRoot>
+                <TableSection Title="Basic Information">
+                    <TextCell Text="Username" Detail="{Binding UserName}"></TextCell>
+                    <EntryCell Text="{Binding FullName}" Label="Full Name"></EntryCell>
+
+                    <EntryCell Text="{Binding Address}" Label="Address" Placeholder="Contry"></EntryCell>
+                        
+                </TableSection>
+                <TableSection Title="Settings">
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="LightSeaGreen">
+                            <Label Text="Brightness" VerticalOptions="Center"></Label>
+                            <Slider Minimum="0" Maximum="100" Value="{Binding Brightness}" HorizontalOptions="FillAndExpand"></Slider>
+                        </StackLayout>
+                    </ViewCell>
+                    <SwitchCell Text="Notification" On="{Binding Notifications}"></SwitchCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
+             x:Class="FirstXamarinProject.Views.CarouselViewPage">
+    <CarouselPage.BindingContext>
+        <vm:CarouselViewVM></vm:CarouselViewVM>
+    </CarouselPage.BindingContext>
+    <ContentPage>
+        <StackLayout>
+            <Label Text="Welcome to Car Database"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" BackgroundColor="LightGray" />
+        </StackLayout>
+    </ContentPage>
+    
+    <ContentPage>
+        <StackLayout>
+            <ListView ItemsSource="{Binding CarList}" SelectedItem="{Binding SelectedItem}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding ImgSource}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="Start"></Image>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding Brand}" HorizontalOptions="Center" VerticalOptions="Start"></Label>
+                                    <Label Text="{Binding Model}" HorizontalOptions="Center" VerticalOptions="Start"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>
+    
+    <ContentPage>
+        <StackLayout>
+            <StackLayout>
+                <Image x:Name="image" BackgroundColor="LightGray" HeightRequest="200" WidthRequest="200" HorizontalOptions="CenterAndExpand" Aspect="AspectFill" Source="{Binding SelectedItem.ImgSource}"></Image>
+            </StackLayout>
+            <StackLayout Padding="10">
+                <Label x:Name="model" BackgroundColor="LightGray" Text="{Binding SelectedItem.Model}" FontAttributes="Bold" FontSize="Large"></Label>
+                <Label x:Name="year" BackgroundColor="LightGray" Text="{Binding SelectedItem.Year}" FontSize="Medium"></Label>
+                <Label x:Name="details" BackgroundColor="LightGray" HeightRequest="100" MinimumHeightRequest="100" Text="{Binding SelectedItem.Details}" FontSize="Small"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+</CarouselPage>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstXamarinProject.Controls.CarControl">
+    <ContentView.Content>
+        <Frame BorderColor="Gray"
+               CornerRadius="20"
+               HasShadow="True"
+               VerticalOptions="CenterAndExpand"
+               Margin="15"
+               Padding="15">
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal"
+                         VerticalOptions="Start">
+
+                    <Image x:Name="image" 
+                       WidthRequest="120"
+                       HeightRequest="80"
+                       BackgroundColor="SteelBlue"
+                       Aspect="AspectFill"
+                       VerticalOptions="Start"
+                       HorizontalOptions="Start"></Image>
+                    <StackLayout Orientation="Vertical">
+                        <Label x:Name="labelBrand" 
+                               Text="Brand" 
+                               FontSize="24" 
+                               FontAttributes="Bold"></Label>
+                        <Label x:Name="labelModel" 
+                               Text="Model" 
+                               FontSize="18" 
+                               FontAttributes="Italic"></Label>
+                        <Label x:Name="labelYear" 
+                               Text="Year" 
+                               FontSize="Small" 
+                               TextColor="Gray"></Label>
+                    </StackLayout>
+                </StackLayout>
+                <Label x:Name="labelDetail"
+                   VerticalOptions="End"
+                   HorizontalOptions="FillAndExpand"
+                   LineBreakMode="WordWrap"
+                   HeightRequest="50"
+                   FontSize="Micro"
+                   Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."></Label>
+            </StackLayout>
+
+        </Frame>
+    </ContentView.Content>
+</ContentView>

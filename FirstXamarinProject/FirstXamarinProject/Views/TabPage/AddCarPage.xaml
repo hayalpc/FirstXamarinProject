@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
+             Title="Add Car"
+             x:Class="FirstXamarinProject.Views.TabPage.AddCarPage">
+    <ContentPage.BindingContext>
+        <vm:AddCarVM></vm:AddCarVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Text="{Binding Brand}" Placeholder="Brand"></Entry>
+            <Entry Text="{Binding Model}" Placeholder="Model"></Entry>
+            <Entry Text="{Binding Year}" Placeholder="Year"></Entry>
+            <Entry Text="{Binding ImgSource}" Placeholder="Image Uri"></Entry>
+            <Button Text="Kaydet" Command="{Binding AddCarCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

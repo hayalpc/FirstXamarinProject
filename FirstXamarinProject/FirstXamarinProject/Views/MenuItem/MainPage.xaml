@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
+             x:Name="contentPage"
+             Title="Menu/Toolbar Item- Delete/Edit Actions"
+             x:Class="FirstXamarinProject.Views.MenuItem.MainPage">
+    <ContentPage.BindingContext>
+        <vm:MenuItemVM></vm:MenuItemVM>
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Yeni" 
+                     Command="{Binding AddCommand}"
+                     Order="Primary" 
+                     Priority="0"></ToolbarItem>
+        <ToolbarItem Text="Settings" 
+                     Order="Secondary" 
+                     Priority="1"></ToolbarItem>
+        <ToolbarItem Text="About Us" 
+                     Order="Secondary" 
+                     Priority="1"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding CarList}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Delete" 
+                                          Command="{Binding Source={x:Reference contentPage}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding .}"></MenuItem>
+                                <MenuItem Text="Edit" 
+                                          Command="{Binding Source={x:Reference contentPage}, Path=BindingContext.EditCommand}" CommandParameter="{Binding .}"></MenuItem>
+                            </ViewCell.ContextActions>
+                            <StackLayout Orientation="Horizontal" Padding="10,0,0,0">
+                                <Image Source="{Binding ImgSource}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="Start"></Image>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding Brand}" HorizontalOptions="Start" VerticalOptions="Start"></Label>
+                                    <Label Text="{Binding Model}" HorizontalOptions="Start" VerticalOptions="Start"></Label>
+                                    <Label Text="{Binding Year}" HorizontalOptions="Start" VerticalOptions="Start"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

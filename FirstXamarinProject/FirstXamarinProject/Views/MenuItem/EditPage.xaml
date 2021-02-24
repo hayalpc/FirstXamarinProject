@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
+             x:Class="FirstXamarinProject.Views.MenuItem.EditPage">
+    <ContentPage.BindingContext>
+        <vm:EditPageVM></vm:EditPageVM>
+    </ContentPage.BindingContext>
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Model}" TextColor="White" FontSize="20"></Label>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="LightGoldenrodYellow">
+            <ScrollView>
+                <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Image x:Name="image" BackgroundColor="LightGray" HeightRequest="200" WidthRequest="200" HorizontalOptions="CenterAndExpand" Aspect="AspectFill" Source="{Binding ImgSource}"></Image>
+                    <StackLayout Orientation="Horizontal" Margin="10">
+                        <Label Text="Brand" TextColor="Gray"
+                               HorizontalOptions="StartAndExpand"
+                               VerticalOptions="Center"></Label>
+                        <Entry Text="{Binding Brand}"
+                               TextColor="Black"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center"></Entry>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Margin="10">
+                        <Label Text="Model" TextColor="Gray"
+                               HorizontalOptions="StartAndExpand"
+                               VerticalOptions="Center"></Label>
+                        <Entry Text="{Binding Model}"
+                               TextColor="Black"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center"></Entry>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Margin="10">
+                        <Label Text="Year" TextColor="Gray"
+                               HorizontalOptions="StartAndExpand"
+                               VerticalOptions="Center"></Label>
+                        <Entry Text="{Binding Year}"
+                               TextColor="Black"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center"></Entry>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Margin="10">
+                        <Label Text="Details" TextColor="Gray"
+                               HorizontalOptions="StartAndExpand"
+                               VerticalOptions="Center"></Label>
+                        <Editor Text="{Binding Details}"
+                               TextColor="Black"
+                               HorizontalOptions="FillAndExpand"
+                               VerticalOptions="Center" HeightRequest="50"></Editor>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <Button VerticalOptions="End" HorizontalOptions="FillAndExpand" Text="Kaydet" Command="{Binding SaveCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

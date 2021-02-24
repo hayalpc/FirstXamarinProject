@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
+             xmlns:controls="clr-namespace:FirstXamarinProject.Controls"
+             x:Name="userListPage"
+             x:Class="FirstXamarinProject.Views.UserListPage">
+    <ContentPage.BindingContext>
+        <vm:UserListVM></vm:UserListVM>
+    </ContentPage.BindingContext>
+    <NavigationPage.TitleView>
+        <Label Text="Kullanıcılar" TextColor="White" FontSize="20"></Label>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Yeni" 
+                     Command="{Binding AddCommand}"
+                     Order="Primary" 
+                     Priority="0"></ToolbarItem>
+       
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding UserList}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Delete" 
+                                              Command="{Binding Source={x:Reference userListPage}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding .}"></MenuItem>
+                                <MenuItem Text="Edit" 
+                                              Command="{Binding Source={x:Reference userListPage}, Path=BindingContext.EditCommand}" CommandParameter="{Binding .}"></MenuItem>
+                            </ViewCell.ContextActions>
+                            <controls:UserControl FullNameText="{Binding Full_name}"
+                                                     FirstNameText="{Binding First_name}"
+                                                     LastNameText="{Binding Last_name}"
+                                                     EmailText="{Binding Email}"
+                                                     ImgSource="{Binding AvatarSource}"></controls:UserControl>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Daha Fazla" Command="{Binding LoadMoreCommand}"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

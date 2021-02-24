@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="FirstXamarinProject.Views.RealEstate.MainPage">
+    <ContentPage.BindingContext>
+        <vm:RealEstateVM></vm:RealEstateVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <ScrollView VerticalScrollBarVisibility="Never" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
+                           Source="House1.jpg" 
+                           Aspect="AspectFill" 
+                           HeightRequest="250"></Image>
+                    
+                    <Button Grid.Row="0" Grid.Column="1" 
+                            BackgroundColor="Transparent" 
+                            ImageSource="Heart.png" 
+                            BorderColor="White"
+                            BorderWidth="2" 
+                            CornerRadius="10"
+                            Margin="0,30,30,0"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            HorizontalOptions="End"
+                            VerticalOptions="Start"></Button>
+                
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Text="$200.000" 
+                           FontAttributes="Bold"
+                           FontSize="30"
+                           VerticalOptions="Start"
+                           Margin="20,10,20,5"></Label>
+                    <Label Grid.Row="2" Grid.Column="0"
+                           Text="Mecidiyeköy Mah. Şişli" 
+                           FontAttributes="Bold"
+                           TextColor="Silver"
+                           FontSize="15"
+                           VerticalOptions="Start"
+                           Margin="20,0,20,5"></Label>
+
+                    <Button Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"
+                            Text="20 saat önce"
+                            BorderColor="Silver"
+                            TextColor="DarkGray"
+                            BorderWidth="1"
+                            BackgroundColor="Transparent"
+                            FontSize="15"
+                            WidthRequest="150"
+                            HeightRequest="40"
+                            CornerRadius="25"
+                            VerticalOptions="Center"
+                            HorizontalOptions="End"
+                            Margin="0,0,30,0"></Button>
+
+                    <Label Grid.Row="3" Grid.Column="0"
+                           Text="Evin Özellikleri"
+                           FontSize="18"
+                           FontAttributes="Bold"
+                           Padding="20,20,0,0" 
+                           VerticalOptions="Start"
+                           HorizontalOptions="Start"></Label>
+                    <CollectionView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                                    Margin="0,10"
+                                    HeightRequest="110"
+                                    VerticalOptions="FillAndExpand"
+                                    HorizontalOptions="Fill"
+                                    HorizontalScrollBarVisibility="Never"
+                                    ItemsLayout="HorizontalList"
+                                    ItemsSource="{Binding Features}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="15,0" RowDefinitions="*,Auto" ColumnDefinitions="Auto">
+                                    <Button Grid.Row="0" Grid.Column="0" 
+                                            TextColor="Black"
+                                            BackgroundColor="Transparent"
+                                            BorderColor="Silver"
+                                            BorderWidth="2"
+                                            CornerRadius="25"
+                                            WidthRequest="10"
+                                            FontSize="20"
+                                            FontAttributes="Bold"
+                                            Text="{Binding Quantity}"></Button>
+                                    <Label Grid.Row="1" Grid.Column="0" 
+                                           WidthRequest="90" 
+                                           Text="{Binding Name}"
+                                           HorizontalTextAlignment="Center"></Label>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <Label Grid.Row="5" Grid.ColumnSpan="2" 
+                           TextColor="Silver" 
+                           FontSize="15" 
+                           Padding="20,20,20,80"
+                           VerticalOptions="Start"
+                           Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."></Label>
+                </Grid>
+            </ScrollView>
+
+            <StackLayout Orientation="Horizontal" 
+                         Padding="0,0,0,10"
+                         VerticalOptions="End"
+                         HorizontalOptions="CenterAndExpand"
+                         HeightRequest="60"
+                         AbsoluteLayout.LayoutFlags="All"
+                         AbsoluteLayout.LayoutBounds="0,1,1,1">
+                <Button BackgroundColor="Black" 
+                        TextColor="White" 
+                        ImageSource="Message.png"
+                        FontAttributes="Bold"
+                        Text="Message"
+                        WidthRequest="150"
+                        CornerRadius="25"
+                        FontSize="17"></Button>
+                <Button BackgroundColor="Black" 
+                        TextColor="White" 
+                        ImageSource="Call.png"
+                        FontAttributes="Bold"
+                        Text="Call"
+                        WidthRequest="150"
+                        CornerRadius="25"
+                        FontSize="17"></Button>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
+             x:Class="FirstXamarinProject.Views.CollectionViewPage">
+    <ContentPage.BindingContext>
+        <vm:ListViewVM></vm:ListViewVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <CollectionView VerticalOptions="Start" HeightRequest="85" ItemsSource="{Binding CarList}" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" Span="1"></GridItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="35"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"></ColumnDefinition>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.RowSpan="2" Source="{Binding ImgSource}" Aspect="AspectFill" HeightRequest="70" WidthRequest="70" BackgroundColor="LightGray"></Image>
+                            <StackLayout Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalOptions="StartAndExpand"  VerticalOptions="Center">
+                                <Label Text="{Binding Brand}" FontAttributes="Bold" FontSize="Large" VerticalOptions="EndAndExpand"></Label>
+                                <Label Text="{Binding Model}" FontAttributes="None" FontSize="Small" VerticalOptions="EndAndExpand"></Label>
+                            </StackLayout>
+                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding Details}" FontAttributes="Italic" FontSize="Small"></Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <StackLayout>
+                <CarouselView ItemsSource="{Binding CarList}">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Frame HasShadow="True" 
+                                       BorderColor="DarkGray" 
+                                       CornerRadius="5"
+                                       Margin="5"
+                                       HeightRequest="300">
+                                    <StackLayout>
+                                        <Label Text="{Binding Brand}" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                        <Label Text="{Binding Model}" FontAttributes="None" FontSize="Small" HorizontalOptions="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                        <Image Source="{Binding ImgSource}" Aspect="AspectFill" HeightRequest="150" WidthRequest="150" BackgroundColor="LightGray">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <Label Text="{Binding Details}" FontAttributes="Italic" FontSize="Small" MaxLines="3">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"></TapGestureRecognizer>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

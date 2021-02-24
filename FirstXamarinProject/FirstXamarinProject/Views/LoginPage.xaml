@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cnv="clr-namespace:FirstXamarinProject.Converter"
+             xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
+             xmlns:behaviors="clr-namespace:FirstXamarinProject.Behaviours"
+             Title="Login"
+             x:Class="FirstXamarinProject.Views.LoginPage">
+    <ContentPage.BindingContext>
+        <vm:LoginVM></vm:LoginVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <behaviors:EmailBehavior x:Key="emailBehavior"></behaviors:EmailBehavior>
+        <cnv:PasswordCheckConverter x:Key="passwordConverter"></cnv:PasswordCheckConverter>
+        <ResourceDictionary>
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+                <Setter Property="PlaceholderColor" Value="LightGray"></Setter>
+                <Setter Property="BackgroundColor" Value="white"></Setter>
+                <Setter Property="FontSize" Value="12"></Setter>
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Style.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                        <Setter Property="TextColor" Value="Black"></Setter>
+                        <Setter Property="PlaceholderColor" Value="CadetBlue"></Setter>
+                        <Setter Property="BackgroundColor" Value="White"></Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+         
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="HorizontalOptions" Value="Start"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="WidthRequest" Value="80"></Setter>
+            </Style>
+            <Style TargetType="Button" x:Key="loginBtn">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="WidthRequest" Value="200"></Setter>
+                <Setter Property="BackgroundColor" Value="CadetBlue"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="CornerRadius" Value="15"></Setter>
+            </Style>
+            <Style TargetType="Button" Class="registerBtn">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+                <Setter Property="WidthRequest" Value="200"></Setter>
+                <Setter Property="BackgroundColor" Value="WhiteSmoke"></Setter>
+                <Setter Property="HeightRequest" Value="40"></Setter>
+                <Setter Property="CornerRadius" Value="15"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <Grid VerticalOptions="FillAndExpand">
+            <Image IsOpaque="True" x:Name="loginBg" BackgroundColor="Transparent" Source="loginBg.png" Aspect="AspectFill" Opacity="0.5" />
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Orientation="Vertical">
+                <Image Source="loginLogo.png" x:Name="loginLogo" Aspect="AspectFill" WidthRequest="150" HeightRequest="150"></Image>
+                <StackLayout Orientation="Vertical">
+                    <Entry Text="{Binding Email}" Placeholder="E-Posta" x:Name="email">
+                        <Entry.Behaviors>
+                            <behaviors:EmailBehavior x:Name="emailBehavior"></behaviors:EmailBehavior>
+                        </Entry.Behaviors>
+                    </Entry>
+                    <Entry Text="{Binding Password}" IsPassword="True" Placeholder="Şifre" x:Name="password"></Entry>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Label WidthRequest="100" Text="Beni Hatırla" FontSize="15" HorizontalOptions="StartAndExpand"></Label>
+                        <Switch ThumbColor="White" OnColor="Gray" IsToggled="{Binding RememberMe}" HorizontalOptions="End"></Switch>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Button Text="Giriş Yap" x:Name="loginBtn" Style="{StaticResource loginBtn}" Command="{Binding LoginCommand}">
+                    </Button>
+                    <Button Text="Kayıt Ol" x:Name="registerBtn" StyleClass="registerBtn"></Button>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

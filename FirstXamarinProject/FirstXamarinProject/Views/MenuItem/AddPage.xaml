@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
+             NavigationPage.HasNavigationBar="False"
+             Title="Add Car"
+             x:Class="FirstXamarinProject.Views.MenuItem.AddPage">
+    <ContentPage.BindingContext>
+        <vm:AddCarVM></vm:AddCarVM>
+    </ContentPage.BindingContext>
+  
+    <ContentPage.Content>
+        <StackLayout>
+            <Image x:Name="imgSource" BackgroundColor="LightGray" HeightRequest="200" WidthRequest="200" HorizontalOptions="CenterAndExpand" Aspect="AspectFill" Source="{Binding ImgSource}"></Image>
+            <Entry Text="{Binding Brand}" Placeholder="Brands"></Entry>
+            <Entry Text="{Binding Model}" Placeholder="Model"></Entry>
+            <Entry Text="{Binding Year}" Placeholder="Year"></Entry>
+            <Editor Text="{Binding Details}" Placeholder="Details"></Editor>
+            <Entry Text="{Binding ImgUri}" Placeholder="Image Uri"></Entry>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Button Text="Geri" CornerRadius="10" Command="{Binding BackCommand}" BackgroundColor="AntiqueWhite" HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Kaydet" CornerRadius="10" Command="{Binding AddCarCommand}" BackgroundColor="CadetBlue" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

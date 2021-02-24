@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstXamarinProject.Views.LoadingPage">
+    <NavigationPage.TitleView>
+        <Label Text="Giriş Sayfası" TextColor="White" FontSize="20"></Label>
+    </NavigationPage.TitleView>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.ColumnSpan="2" Text="Hoşgeldiniz" HorizontalOptions="Center" FontSize="18" FontAttributes="Bold"></Label>
+            <Button Grid.Row="1" Grid.Column="0" Text="Giriş Yap" Clicked="LoginClicked"></Button>
+            <Button Grid.Row="1" Grid.Column="1" Text="Kayıt Ol" Clicked="RegisterClicked"></Button>
+            <Button Grid.Row="2" Grid.Column="0" Text="Veri Bağlama 2" Clicked="VeriBaglama2Clicked"></Button>
+            <Button Grid.Row="2" Grid.Column="1" Text="List View" Clicked="ListViewClicked"></Button>
+            <Button Grid.Row="3" Grid.Column="0" Text="Collection View" Clicked="CollectionViewClicked"></Button>
+            <Button Grid.Row="3" Grid.Column="1" Text="Table View" Clicked="TableViewClicked"></Button>
+            <Button Grid.Row="4" Grid.Column="0" Text="Carousel View" Clicked="CarouselViewClicked"></Button>
+            <Button Grid.Row="4" Grid.Column="1" Text="Master Detail Page" Clicked="MasterPageClicked"></Button>
+            <Button Grid.Row="5" Grid.Column="0" Text="Tabbed Page" Clicked="TabbedPageClicked"></Button>
+            <Button Grid.Row="5" Grid.Column="1" Text="Real Estate Page" Clicked="RealEstatePageClicked"></Button>
+            <Button Grid.Row="6" Grid.Column="0" Text="Menu/Toolbar Item" Clicked="MenuItemPageClicked"></Button>
+            <Button Grid.Row="6" Grid.Column="1" Text="Notification Center" Clicked="NotificationCenterClicked"></Button>
+            <Button Grid.Row="7" Grid.Column="0" Text="Custom Control" Clicked="CustomControlClicked"></Button>
+            <Button Grid.Row="7" Grid.Column="1" Text="Behaviors" Clicked="BehaviorsClicked"></Button>
+            <Button Grid.Row="8" Grid.Column="0" Text="UserList" Clicked="UserListClicked"></Button>
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>

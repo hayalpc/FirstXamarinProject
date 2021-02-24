@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
+             x:Class="FirstXamarinProject.Views.ProfilePage">
+    <ContentPage.BindingContext>
+        <vm:ProfileVM></vm:ProfileVM>
+    </ContentPage.BindingContext>
+    <NavigationPage.TitleView>
+        <Label Text="{Binding Full_name}" TextColor="White" FontSize="20"></Label>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Image Source="{Binding Avatar}" BackgroundColor="LightGray" 
+                       HeightRequest="200" 
+                       WidthRequest="200" 
+                       HorizontalOptions="CenterAndExpand" 
+                       Aspect="AspectFill"></Image>
+            </StackLayout>
+            <StackLayout Padding="10">
+                <Label Text="{Binding Email}" 
+                       BackgroundColor="LightGray" 
+                       FontAttributes="Bold" 
+                       FontSize="Large"></Label>
+                <Label Text="{Binding First_name}" 
+                       BackgroundColor="LightGray" 
+                       FontSize="Medium"></Label>
+                <Label Text="{Binding Last_name}" 
+                       BackgroundColor="LightGray" 
+                       FontSize="Medium"></Label>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
+             Title="Cars Page"
+             x:Class="FirstXamarinProject.Views.TabPage.CarsPage">
+    <ContentPage.BindingContext>
+        <vm:ListViewVM></vm:ListViewVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding CarList}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!--<TextCell Text="{Binding Brand}" Detail="{Binding Model}" />-->
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding ImgSource}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="Start"></Image>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                    <Label Text="{Binding Brand}" HorizontalOptions="Center" VerticalOptions="Start"></Label>
+                                    <Label Text="{Binding Model}" HorizontalOptions="Center" VerticalOptions="Start"></Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
