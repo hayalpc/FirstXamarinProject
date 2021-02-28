@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -15,15 +16,19 @@ namespace FirstXamarinProject.ViewModels
     public class UserListVM : INotifyPropertyChanged
     {
         int page = 1;
+        bool isRefresing;
+
         ObservableCollection<User> userList;
         ICommand deleteCommand;
         ICommand editCommand;
         ICommand addCommand;
+        ICommand refreshCommand;
         ICommand loadMoreCommand;
 
         public ICommand DeleteCommand { get => deleteCommand; set => deleteCommand = value; }
         public ICommand EditCommand { get => editCommand; set => editCommand = value; }
         public ICommand AddCommand { get => addCommand; set => addCommand = value; }
+        public ICommand RefreshCommand { get => refreshCommand; set => refreshCommand = value; }
         public ICommand LoadMoreCommand { get => loadMoreCommand; set => loadMoreCommand = value; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -38,12 +43,22 @@ namespace FirstXamarinProject.ViewModels
         }
 
         public int Page { get => page; set => page = value; }
+        public bool IsRefresing { get => isRefresing; set
+            {
+                if(isRefresing != value)
+                {
+                    isRefresing = value;
+                    OnPropertyChanged("IsRefresing");
+                }
+            }
+        }
 
         public UserListVM()
         {
             DeleteCommand = new Command<User>(deleteFuction);
             EditCommand = new Command<User>(editFunction);
             AddCommand = new Command(addFunction);
+            RefreshCommand = new Command(refreshFunction);
             LoadMoreCommand = new Command(loadMoreFunction);
 
             loadUsers();
@@ -69,6 +84,16 @@ namespace FirstXamarinProject.ViewModels
         {
             Page++;
             loadUsers();
+        }
+
+        public async void refreshFunction()
+        {
+            await Task.Run(() => {
+                IsRefresing = true;
+                Page = 1;
+                loadUsers();
+                IsRefresing = false;
+            });
         }
 
         public virtual void OnPropertyChanged(string propertyName)

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels.Firebase"
+             x:Class="FirstXamarinProject.Views.Firebase.RegisterPage">
+    <ContentPage.BindingContext>
+        <vm:RegisterVM></vm:RegisterVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="15">
+                    <Image Source="loginLogo.png" x:Name="loginLogo" Aspect="AspectFit" HeightRequest="100"></Image>
+                    <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="5">
+                        <material:MaterialTextField Text="{Binding Email}" HasError="{Binding EmailHasError}" Placeholder="E-Posta" InputType="Email" ErrorText="Geçerli bir E-posta giriniz" HelperText="E-Posta adresinizi giriniz"></material:MaterialTextField>
+                        <material:MaterialTextField Text="{Binding Name}" HasError="{Binding NameHasError}" Placeholder="Adınız" InputType="Text" ErrorText="Lütfen adınızı giriniz" HelperText="Adınızı giriniz"></material:MaterialTextField>
+                        <material:MaterialTextField Text="{Binding Surname}" HasError="{Binding SurnameHasError}" Placeholder="Soyadınız" InputType="Text" ErrorText="Lütfen soyadınızı giriniz" HelperText="Soyadınızı giriniz"></material:MaterialTextField>
+                        <material:MaterialTextField Text="{Binding Password}" HasError="{Binding PasswordHasError}" Placeholder="Şifre" InputType="Password" ErrorText="Geçerli bir şifre giriniz" HelperText="Şifrenizi giriniz"></material:MaterialTextField>
+                        <material:MaterialTextField Text="{Binding PasswordAgain}" HasError="{Binding PasswordAgainHasError}" Placeholder="Şifre Tekrar" InputType="Password" ErrorText="Şifreler uyuşmuyor" HelperText="Şifrenizi tekrar giriniz"></material:MaterialTextField>
+                    </StackLayout>
+                    <material:MaterialButton Command="{Binding RegisterCommand}" Text="Kayıt Ol" TextColor="White" HeightRequest="60" FontAttributes="Bold" FontSize="Large" BackgroundColor="#286528"></material:MaterialButton>
+                    <Label Text="Eğer üyeysen giriş yap" TextColor="Gray" VerticalOptions="Start" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="15" Margin="7,0,0,0">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Login_Tapped"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

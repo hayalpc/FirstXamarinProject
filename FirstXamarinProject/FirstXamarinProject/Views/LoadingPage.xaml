@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Visual="Material"
+             NavigationPage.HasNavigationBar="False"
              x:Class="FirstXamarinProject.Views.LoadingPage">
     <NavigationPage.TitleView>
         <Label Text="Giriş Sayfası" TextColor="White" FontSize="20"></Label>
@@ -36,6 +38,11 @@
             <Button Grid.Row="7" Grid.Column="0" Text="Custom Control" Clicked="CustomControlClicked"></Button>
             <Button Grid.Row="7" Grid.Column="1" Text="Behaviors" Clicked="BehaviorsClicked"></Button>
             <Button Grid.Row="8" Grid.Column="0" Text="UserList" Clicked="UserListClicked"></Button>
+            <Button Grid.Row="8" Grid.Column="1" Text="Book" Clicked="BookClicked"></Button>
+            <Button Grid.Row="9" Grid.Column="0" Text="Metarials" Clicked="MetarialClicked"></Button>
+            <Button Grid.Row="9" Grid.Column="1" Text="Swipe" Clicked="SwipeClicked"></Button>
+            <Button Grid.Row="10" Grid.ColumnSpan="2" Text="Firebase" Clicked="FirebaseClicked"></Button>
+
         </Grid>
 
     </StackLayout>

@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace FirstXamarinProject.Views.MasterPage
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : MasterDetailPage
+    public partial class MainPage : FlyoutPage
     {
         public MainPage()
         {

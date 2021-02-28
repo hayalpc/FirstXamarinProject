@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             material:MaterialNavigationPage.AppBarColor="#2c3e50"
+             material:MaterialNavigationPage.AppBarTitleTextFontFamily="Roboto"
+             material:MaterialNavigationPage.AppBarTitleTextFontSize="14"
+             material:MaterialNavigationPage.StatusBarColor="#183147"
+             material:MaterialNavigationPage.AppBarTitleTextAlignment="Start"
+             Title="Material Login"
+             x:Class="FirstXamarinProject.Views.Metarials.MainPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Image WidthRequest="200" 
+                   HeightRequest="200" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center" 
+                   Aspect="AspectFit" 
+                   Source="https://www.allianceplast.com/wp-content/uploads/2017/11/no-image.png"></Image>
+            <material:MaterialTextField Placeholder="E-mail" x:Name="tfUsername"
+                                       LeadingIcon="https://cdn0.iconfinder.com/data/icons/set-ui-app-android/32/8-512.png"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="FillAndExpand"
+                                       HelperText="Türkçe karakter girmeyiniz."
+                                       ErrorText="Eposta adresini lütfen kontrol ediniz"
+                                        InputType="Email"></material:MaterialTextField>
+
+            <material:MaterialTextField Placeholder="Password" x:Name="tfPassword"
+                                        LeadingIcon="https://w7.pngwing.com/pngs/138/590/png-transparent-computer-icons-password-icon-svg-security-password-icon.png"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="FillAndExpand"
+                                        HelperText="En az 8 karakterli bir şifre giriniz"
+                                        ErrorText="Lütfen en az 8 karakter giriniz"
+                                        InputType="NumericPassword"></material:MaterialTextField>
+            <material:MaterialButton x:Name="btnLogin" BackgroundColor="DodgerBlue" 
+                                     CornerRadius="10"
+                                     PressedBackgroundColor="DeepSkyBlue"
+                                     HorizontalOptions="Center"
+                                     Text="Log In"
+                                     VerticalOptions="Center"
+                                     Clicked="btnLogin_Clicked"
+                                     TextColor="DarkBlue"></material:MaterialButton>
+                                     
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

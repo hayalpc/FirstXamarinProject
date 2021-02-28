@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             x:Class="FirstXamarinProject.Views.Books.DetailPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="toolbarUpdateBtn" Text="Güncelle" 
+                     Command="{Binding GoToUpdateCommand}"
+                     Order="Primary" 
+                     Priority="0"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+                <Image Source="{Binding ImageSource}" 
+                       WidthRequest="200" 
+                       HeightRequest="200" 
+                       Aspect="AspectFit"></Image>
+            <Label Text="{Binding Name}" VerticalOptions="Start" HorizontalOptions="Center" FontAttributes="Bold" FontSize="Large" />
+            <Label Text="{Binding Author}" VerticalOptions="Start" HorizontalOptions="Center" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Yıl:" VerticalOptions="Start" HorizontalOptions="Center" FontAttributes="Bold" />
+                <Label Text="{Binding Year}" VerticalOptions="Start" HorizontalOptions="Center" />
+
+                <Label Text="Sayfa: " VerticalOptions="Start" HorizontalOptions="Center" FontAttributes="Bold" />
+                <Label Text="{Binding Page}" VerticalOptions="Start" HorizontalOptions="Center" />
+            </StackLayout>
+
+            <Label Text="{Binding Description}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" FontAttributes="Italic" Margin="10"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

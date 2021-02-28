@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
+             xmlns:controls="clr-namespace:FirstXamarinProject.Controls"
+             x:Name="bookListPage"
+             Visual="Material"
+             x:Class="FirstXamarinProject.Views.Books.ListPage">
+    
+    <NavigationPage.TitleView>
+        <Label Text="Kitaplar" TextColor="White" FontSize="20"></Label>
+    </NavigationPage.TitleView>
+    
+    <ContentPage.BindingContext>
+        <vm:BookListVM></vm:BookListVM>
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Yeni" 
+                     Command="{Binding AddCommand}"
+                     Order="Primary" 
+                     Priority="0"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding BookList}" ItemTapped="ListView_ItemTapped" HasUnevenRows="True" IsRefreshing="{Binding IsRefresing}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Sil" 
+                                              Command="{Binding Source={x:Reference Name=bookListPage}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding .}"></MenuItem>
+                                <MenuItem Text="Düzenle" 
+                                              Command="{Binding Source={x:Reference Name=bookListPage}, Path=BindingContext.EditCommand}" CommandParameter="{Binding .}"></MenuItem>
+                            </ViewCell.ContextActions>
+                            <controls:BookControl NameText="{Binding Name}"
+                                                  AuthorText="{Binding Author}"
+                                                  CategoryText="{Binding Category}"
+                                                  DescriptionText="{Binding Description}"
+                                                  YearText="{Binding Year}"
+                                                  ImgSource="{Binding ImageSource}"></controls:BookControl>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--<Button Text="Daha Fazla" Command="{Binding LoadMoreCommand}"></Button>-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

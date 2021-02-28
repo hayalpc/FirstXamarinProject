@@ -4,23 +4,25 @@
              xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
              xmlns:controls="clr-namespace:FirstXamarinProject.Controls"
              x:Name="userListPage"
+             Visual="Material"
              x:Class="FirstXamarinProject.Views.UserListPage">
-    <ContentPage.BindingContext>
-        <vm:UserListVM></vm:UserListVM>
-    </ContentPage.BindingContext>
+
     <NavigationPage.TitleView>
         <Label Text="Kullanıcılar" TextColor="White" FontSize="20"></Label>
     </NavigationPage.TitleView>
+    
+    <ContentPage.BindingContext>
+        <vm:UserListVM></vm:UserListVM>
+    </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Yeni" 
                      Command="{Binding AddCommand}"
                      Order="Primary" 
                      Priority="0"></ToolbarItem>
-       
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <ListView ItemsSource="{Binding UserList}" HasUnevenRows="True">
+            <ListView ItemsSource="{Binding UserList}" HasUnevenRows="True" IsRefreshing="{Binding IsRefresing}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefreshCommand}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

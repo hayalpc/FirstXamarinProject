@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels.Firebase"
+             x:Class="FirstXamarinProject.Views.Firebase.LoginPage">
+    <ContentPage.BindingContext>
+        <vm:LoginVM></vm:LoginVM>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="15">
+                <Image Source="loginLogo.png" x:Name="loginLogo" Aspect="AspectFit" HeightRequest="100"></Image>
+                <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="5">
+                    <material:MaterialTextField Text="{Binding Email}" Placeholder="E-Posta" InputType="Email" ErrorText="Geçerli bir E-posta giriniz" HelperText="E-Posta adresinizi giriniz"></material:MaterialTextField>
+                    <material:MaterialTextField Text="{Binding Password}" Placeholder="Şifre" InputType="Password" ErrorText="Geçerli bir şifre giriniz" HelperText="Şifrenizi giriniz"></material:MaterialTextField>
+                </StackLayout>
+                <AbsoluteLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                    <material:MaterialButton IsEnabled="{Binding IsButtonProcessing}" DisabledBackgroundColor="LightGray" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Command="{Binding LoginCommand}" Text="Giriş Yap" TextColor="White" HeightRequest="60" FontAttributes="Bold" FontSize="Large" BackgroundColor="#088da5"></material:MaterialButton>
+                    <ActivityIndicator AbsoluteLayout.LayoutBounds="0,0,1,1" Color="Gray" AbsoluteLayout.LayoutFlags="All" IsRunning="{Binding IsProcessing}" IsVisible="{Binding IsProcessing}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"></ActivityIndicator>
+                </AbsoluteLayout>
+                <Label Text="Eğer üye değilsen kayıt ol" TextColor="Gray" VerticalOptions="Start" HorizontalOptions="Start" HorizontalTextAlignment="Start" FontSize="15" Margin="7,0,0,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Register_Tapped"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

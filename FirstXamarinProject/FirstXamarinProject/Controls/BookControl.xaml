@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirstXamarinProject.Controls.BookControl">
+    <ContentView.Content>
+        <Frame BorderColor="Gray"
+               CornerRadius="5"
+               HasShadow="True"
+               VerticalOptions="CenterAndExpand"
+               Margin="10"
+               Padding="5">
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal"
+                         VerticalOptions="Start">
+                    <Image x:Name="image" 
+                       WidthRequest="120"
+                       HeightRequest="70"
+                       Aspect="AspectFill"
+                       VerticalOptions="Start"
+                       HorizontalOptions="Start"></Image>
+                    <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                            <Label x:Name="labelName" 
+                                   Text="Book Name" 
+                                   FontSize="20" 
+                                   FontAttributes="Bold"></Label>
+                            <Label x:Name="labelYear" 
+                                   Text="Year" 
+                                   FontSize="Small" 
+                                   Margin="0,7,0,0"
+                                   HorizontalOptions="EndAndExpand"
+                                   HorizontalTextAlignment="End"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Label x:Name="labelCategory" 
+                                   Text="Category" 
+                                   FontSize="18" 
+                                   FontAttributes="Italic"></Label>
+                            <Label Text="/" 
+                                   FontSize="18"></Label>
+                            <Label x:Name="labelAuthor" 
+                                   Text="Author" 
+                                   FontSize="18" 
+                                   FontAttributes="Italic"></Label>
+                        </StackLayout>
+
+                    </StackLayout>
+                </StackLayout>
+                <Label x:Name="labelDescription"
+                   VerticalOptions="End"
+                   HorizontalOptions="FillAndExpand"
+                   LineBreakMode="WordWrap"
+                   HeightRequest="30"
+                   FontSize="Micro"
+                   Text="It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."></Label>
+            </StackLayout>
+
+        </Frame>
+    </ContentView.Content>
+</ContentView>

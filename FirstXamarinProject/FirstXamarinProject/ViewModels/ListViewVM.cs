@@ -15,6 +15,7 @@ namespace FirstXamarinProject.ViewModels
     {
         ObservableCollection<Car> carList;
         ICommand refreshCommand;
+        bool isRefresing;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -28,6 +29,15 @@ namespace FirstXamarinProject.ViewModels
         }
 
         public ICommand RefreshCommand { get => refreshCommand; set => refreshCommand = value; }
+        public bool IsRefresing { get => isRefresing; set
+            {
+                if(isRefresing != value)
+                {
+                    isRefresing = value;
+                    OnPropertyChanged("IsRefresing");
+                }
+            }
+        }
 
         public ListViewVM()
         {

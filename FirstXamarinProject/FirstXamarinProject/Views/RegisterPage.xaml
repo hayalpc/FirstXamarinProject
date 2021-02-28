@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
              xmlns:trg="clr-namespace:FirstXamarinProject.Triggers"
+             Visual="Material"
              NavigationPage.HasNavigationBar="False"
              x:Class="FirstXamarinProject.Views.RegisterPage">
     <ContentPage.BindingContext>
@@ -18,11 +19,11 @@
                             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
                             RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"></Button>
                 </RelativeLayout>
-                <Entry Text="{Binding Name}" Placeholder="Name" PlaceholderColor="DimGray" x:Name="entryName" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="AliceBlue"></Entry>
-                <Entry Text="{Binding Surname}" Placeholder="Surname" PlaceholderColor="DimGray" x:Name="entrySurname" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="AliceBlue"></Entry>
-                <Entry Text="{Binding Email}" BackgroundColor="{Binding BgColor}" Placeholder="Email" PlaceholderColor="DimGray" x:Name="entryEmail" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="AliceBlue"></Entry>
-                <Entry Text="{Binding Password}" Placeholder="Password" PlaceholderColor="DimGray" IsPassword="True" x:Name="entryPassword" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="AliceBlue"></Entry>
-                <Entry Text="{Binding Password2}" Placeholder="Tekrar Password" PlaceholderColor="DimGray" IsPassword="True" x:Name="entryPassword2" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="AliceBlue">
+                <Entry Text="{Binding Name}" Placeholder="Name" PlaceholderColor="DimGray" x:Name="entryName" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="Black"></Entry>
+                <Entry Text="{Binding Surname}" Placeholder="Surname" PlaceholderColor="DimGray" x:Name="entrySurname" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="Black"></Entry>
+                <Entry Text="{Binding Email}" BackgroundColor="{Binding BgColor}" Placeholder="Email" PlaceholderColor="DimGray" x:Name="entryEmail" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="Black"></Entry>
+                <Entry Text="{Binding Password}" Placeholder="Password" PlaceholderColor="DimGray" IsPassword="True" x:Name="entryPassword" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="Black"></Entry>
+                <Entry Text="{Binding Password2}" Placeholder="Tekrar Password" PlaceholderColor="DimGray" IsPassword="True" x:Name="entryPassword2" VerticalOptions="Center" HorizontalOptions="FillAndExpand" TextColor="Black">
                     <Entry.Triggers>
                         <EventTrigger Event="TextChanged">
                             <trg:PasswordTrigger FirstEntry="{x:Reference entryPassword}"></trg:PasswordTrigger>

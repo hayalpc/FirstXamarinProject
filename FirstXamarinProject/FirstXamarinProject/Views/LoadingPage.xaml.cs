@@ -6,9 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using FirstXamarinProject.Views.MasterPage;
+using Xamarin.Forms.Xaml;
+using FirstXamarinProject.Services;
 
 namespace FirstXamarinProject.Views
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoadingPage : ContentPage
     {
         public LoadingPage()
@@ -72,9 +75,23 @@ namespace FirstXamarinProject.Views
             Navigation.InsertPageBefore(new CustomControl.MainPage(), this);
             await Navigation.PopAsync();
         }
+        private async void MetarialClicked(object sender, EventArgs e)
+        {
+            Navigation.InsertPageBefore(new Metarials.MainPage(), this);
+            await Navigation.PopAsync();
+        }
+        private async void FirebaseClicked(object sender, EventArgs e)
+        {
+            Navigation.InsertPageBefore(new SplashScreen(App.FireBaseService.CheckToken), this);
+            await Navigation.PopAsync();
+        }
         private async void NotificationCenterClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new NotificationCenter.MainPage());
+        }
+        private async void BookClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Books.ListPage());
         }
         private async void BehaviorsClicked(object sender, EventArgs e)
         {
@@ -83,6 +100,10 @@ namespace FirstXamarinProject.Views
         private async void UserListClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new UserListPage());
+        }
+        private async void SwipeClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Swipe.MainPage());
         }
         //private void userName_TextChanged(object sender, TextChangedEventArgs e)
         //{

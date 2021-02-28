@@ -4,6 +4,7 @@
              xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
              x:Name="contentPage"
              Title="Menu/Toolbar Item- Delete/Edit Actions"
+             Visual="Material"
              x:Class="FirstXamarinProject.Views.MenuItem.MainPage">
     <ContentPage.BindingContext>
         <vm:MenuItemVM></vm:MenuItemVM>

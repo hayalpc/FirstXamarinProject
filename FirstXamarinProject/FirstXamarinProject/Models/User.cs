@@ -9,6 +9,7 @@ namespace FirstXamarinProject.Models
     {
         int id;
         string email, first_name, last_name, avatar;
+        Rectangle layoutBounds = new Rectangle(0.5, 0.5, 0.8, 0.8);
 
         public int Id { get => id; set => id = value; }
         public string Email { get => email; set => email = value; }
@@ -28,6 +29,12 @@ namespace FirstXamarinProject.Models
             {
                 return $"{First_name} {Last_name}";
             }
+        }
+
+        public Rectangle LayoutBounds
+        {
+            get => layoutBounds;
+            set => layoutBounds = value;
         }
     }
 }

@@ -4,6 +4,7 @@
              xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
              xmlns:controls="clr-namespace:FirstXamarinProject.Controls"
              Title="Cars"
+             Visual="Material"
              x:Class="FirstXamarinProject.Views.CustomControl.MainPage">
     <ContentPage.BindingContext>
         <vm:ListViewVM></vm:ListViewVM>

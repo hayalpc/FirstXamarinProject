@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             Visual="Material"
+             x:Class="FirstXamarinProject.Views.Books.AddPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="toolbarSaveBtn" Text="Kaydet" 
+                     Command="{Binding AddCommand}"
+                     Order="Primary" 
+                     Priority="0"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="FillAndExpand">
+                <Entry Text="{Binding Name}" 
+                       x:Name="entryName"
+                       Placeholder="Kitap Adı"></Entry>
+                <Entry Text="{Binding Author}" 
+                       x:Name="entryAuthor"
+                       Placeholder="Yazar"></Entry>
+                <Entry Text="{Binding Category}" 
+                       x:Name="entryCategory"
+                       Placeholder="Kategori"></Entry>
+                <Entry Text="{Binding Year}" 
+                       x:Name="entryYear"
+                       Keyboard="Numeric"
+                       Placeholder="Yıl"></Entry>
+                <Entry Text="{Binding Page}"
+                       x:Name="entryPage"
+                       Keyboard="Numeric"
+                       Placeholder="Sayfa"></Entry>
+                <Editor Text="{Binding Description}"
+                        Placeholder="Açıklama"
+                        AutoSize="TextChanges"
+                        x:Name="entryDesciption"></Editor>
+                <RelativeLayout VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="200" HeightRequest="200" BackgroundColor="Transparent">
+                    <Image BackgroundColor="Transparent"
+                           Source="{Binding ImageSource}"
+                           x:Name="bookImage"
+                           Aspect="AspectFit"
+                           WidthRequest="200"
+                           HeightRequest="200"></Image>
+                    <Button BackgroundColor="Transparent" Command="{Binding ImageSelectCommand}"
+                            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}"
+                            RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"></Button>
+                </RelativeLayout>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

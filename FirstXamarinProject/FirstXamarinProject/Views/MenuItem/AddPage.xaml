@@ -4,6 +4,7 @@
              xmlns:vm="clr-namespace:FirstXamarinProject.ViewModels"
              NavigationPage.HasNavigationBar="False"
              Title="Add Car"
+             Visual="Material"
              x:Class="FirstXamarinProject.Views.MenuItem.AddPage">
     <ContentPage.BindingContext>
         <vm:AddCarVM></vm:AddCarVM>
