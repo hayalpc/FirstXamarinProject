@@ -1,4 +1,5 @@
 # FirstXamarinProject
+[See Screenshots](FirstXamarinProject/FirstXamarinProject/Images/Screenshots/)
 
 <img src="FirstXamarinProject/FirstXamarinProject/Images/Screenshots/Screenshot_1614076022.png" alt="" width="150" height="300" />
 <br>
